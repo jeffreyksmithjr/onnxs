@@ -8,7 +8,7 @@ _1. ONNX interop for Elixir_
 ## Overview
 
 The [Open Neural Network eXchange format](https://onnx.ai/)(ONNX) is an open format for representing deep learning models.
-Because it's an open format [supported by various deep learning frameworks](https://onnx.ai/supported-tools), it enables greater interoperations between different toolchains.
+Because it's an open format [supported by various deep learning frameworks](https://onnx.ai/supported-tools), it enables greater interoperation between different toolchains.
 
 ONNXS allows you to decode saved ONNX models into Elixir structs.
 
@@ -85,4 +85,4 @@ iex(9)> File.close file
 
 ## Implementation
 
-This implementation uses [Bing Tony Han](https://github.com/tony612/protobuf-elixir)'s [protobuf-elixir](https://github.com/tony612/protobuf-elixir) to generate Elixir code from the [ONNX proto file](https://github.com/onnx/onnx/blob/master/onnx/onnx.proto).
+This implementation uses [Bing Tony Han](https://github.com/tony612/protobuf-elixir)'s [protobuf-elixir](https://github.com/tony612/protobuf-elixir) library to generate Elixir code from the [ONNX proto file](https://github.com/onnx/onnx/blob/master/onnx/onnx.proto).
