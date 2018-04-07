@@ -12,13 +12,14 @@ defmodule ONNXS.MixProject do
       deps: deps()
     ]
   end
-  
+
   def package do
-    [ name: :onnxs,
+    [
+      name: :onnxs,
       files: ["lib", "mix.exs"],
       maintainers: ["Jeff Smith"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/jeffreyksmithjr/onnxs"},
+      links: %{"Github" => "https://github.com/jeffreyksmithjr/onnxs"}
     ]
   end
 
