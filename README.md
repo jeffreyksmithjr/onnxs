@@ -1,4 +1,7 @@
 # ONNXS
+
+[![Build Status](https://travis-ci.org/jeffreyksmithjr/onnxs.svg?branch=master)](https://travis-ci.org/jeffreyksmithjr/onnxs)
+
 _ONNXS_
 
 _[ON-eks-ESS] noun._
