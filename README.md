@@ -1,5 +1,6 @@
 # ONNXS
 
+[![Hex.pm](https://img.shields.io/hexpm/v/onnxs.svg)](https://hex.pm/packages/onnxs)
 [![Build Status](https://travis-ci.org/jeffreyksmithjr/onnxs.svg?branch=master)](https://travis-ci.org/jeffreyksmithjr/onnxs)
 
 _ONNXS_
@@ -12,6 +13,22 @@ _1. ONNX interop for Elixir_
 
 The [Open Neural Network eXchange format](https://onnx.ai/)(ONNX) is an open format for representing deep learning models.
 Because it's an open format [supported by various deep learning frameworks](https://onnx.ai/supported-tools), it enables greater interoperation between different toolchains.
+
+ONNXS allows you to decode trained neural network models produced by deep learning frameworks, modify them, and encode them back into the standard ONNX format.
+
+## Installation
+
+The package can be installed by adding onnxs to your list of dependencies in mix.exs:
+
+```
+def deps do
+  [
+    {:onnxs, "~> 0.1.0"}
+  ]
+end
+```
+
+## Usage
 
 ONNXS allows you to decode saved ONNX models into Elixir structs.
 
