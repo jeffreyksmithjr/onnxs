@@ -8,7 +8,7 @@ defmodule ONNXS.MixProject do
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       description: "ONNX interop for Elixir",
-      package: package,
+      package: package(),
       deps: deps()
     ]
   end
@@ -33,7 +33,8 @@ defmodule ONNXS.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:protobuf, "~> 0.5.3"}
+      {:protobuf, "~> 0.5.3"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 end
