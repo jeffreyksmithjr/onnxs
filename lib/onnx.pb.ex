@@ -1,5 +1,10 @@
 defmodule Onnx.AttributeProto do
-  @moduledoc false
+  @moduledoc """
+  A named attribute containing either singular float, integer, string
+  and tensor values, or repeated float, integer, string and tensor values.
+  An AttributeProto MUST contain the name field, and *only one* of the
+  following content fields, effectively enforcing a C/C++ union equivalent.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -49,7 +54,10 @@ defmodule Onnx.AttributeProto do
 end
 
 defmodule Onnx.AttributeProto.AttributeType do
-  @moduledoc false
+  @moduledoc """
+  Note: this enum is structurally identical to the OpSchema::AttrType
+  enum defined in schema.h.  If you rev one, you likely need to rev the other.
+  """
   use Protobuf, enum: true, syntax: :proto2
 
   field(:UNDEFINED, 0)
@@ -66,7 +74,10 @@ defmodule Onnx.AttributeProto.AttributeType do
 end
 
 defmodule Onnx.ValueInfoProto do
-  @moduledoc false
+  @moduledoc """
+  Defines information on value, including the name, the type, and
+  the shape of the value.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -82,7 +93,12 @@ defmodule Onnx.ValueInfoProto do
 end
 
 defmodule Onnx.NodeProto do
-  @moduledoc false
+  @moduledoc """
+  NodeProto stores a node that is similar to the notion of "layer"
+  or "operator" in many deep learning frameworks. For example, it can be a
+  node of type "Conv" that takes in an image, a filter tensor and a bias
+  tensor, and produces the convolved output.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -106,7 +122,12 @@ defmodule Onnx.NodeProto do
 end
 
 defmodule Onnx.ModelProto do
-  @moduledoc false
+  @moduledoc """
+  ModelProto is a top-level file/container format for bundling a ML model.
+  The semantics of the model are described by the GraphProto that represents
+  a parameterized computation graph against a set of named operators that are
+  defined independently from the graph.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -144,7 +165,10 @@ defmodule Onnx.ModelProto do
 end
 
 defmodule Onnx.StringStringEntryProto do
-  @moduledoc false
+  @moduledoc """
+  StringStringEntryProto follows the pattern for cross-proto-version maps.
+  See https://developers.google.com/protocol-buffers/docs/proto3#maps
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -158,7 +182,11 @@ defmodule Onnx.StringStringEntryProto do
 end
 
 defmodule Onnx.GraphProto do
-  @moduledoc false
+  @moduledoc """
+  GraphProto defines a parameterized series of nodes to form a directed acyclic graph.
+  This is the equivalent of the "network" and "graph" in many deep learning
+  frameworks.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -182,7 +210,9 @@ defmodule Onnx.GraphProto do
 end
 
 defmodule Onnx.TensorProto do
-  @moduledoc false
+  @moduledoc """
+  A message defined to store a tensor in its serialized format.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -229,7 +259,11 @@ defmodule Onnx.TensorProto do
 end
 
 defmodule Onnx.TensorProto.Segment do
-  @moduledoc false
+  @moduledoc """
+  For very large tensors, we may want to store them in chunks, in which
+  case the following fields will specify the segment that is stored in
+  the current TensorProto.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -265,7 +299,9 @@ defmodule Onnx.TensorProto.DataType do
 end
 
 defmodule Onnx.TensorShapeProto do
-  @moduledoc false
+  @moduledoc """
+  Defines a tensor shape.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -277,7 +313,11 @@ defmodule Onnx.TensorShapeProto do
 end
 
 defmodule Onnx.TensorShapeProto.Dimension do
-  @moduledoc false
+  @moduledoc """
+  A dimension can be either an integer value
+  or a symbolic variable. A symbolic variable represents an unknown
+  dimension.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -291,7 +331,9 @@ defmodule Onnx.TensorShapeProto.Dimension do
 end
 
 defmodule Onnx.TypeProto do
-  @moduledoc false
+  @moduledoc """
+  Define the types.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -318,7 +360,9 @@ defmodule Onnx.TypeProto.Tensor do
 end
 
 defmodule Onnx.OperatorSetIdProto do
-  @moduledoc false
+  @moduledoc """
+  OperatorSets are uniquely identified by a (domain, opset_version) pair.
+  """
   use Protobuf, syntax: :proto2
 
   @type t :: %__MODULE__{
@@ -332,7 +376,10 @@ defmodule Onnx.OperatorSetIdProto do
 end
 
 defmodule Onnx.Version do
-  @moduledoc false
+  @moduledoc """
+  To be compatible with both proto2 and proto3, we will use a version number
+  that is not defined by the default value but an explicit enum number.
+  """
   use Protobuf, enum: true, syntax: :proto2
 
   field(:_START_VERSION, 0)

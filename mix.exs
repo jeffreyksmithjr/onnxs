@@ -9,6 +9,7 @@ defmodule ONNXS.MixProject do
       start_permanent: Mix.env() == :prod,
       description: "ONNX interop for Elixir",
       package: package(),
+      docs: [extras: ["README.md"]],
       deps: deps()
     ]
   end
