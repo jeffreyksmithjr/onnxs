@@ -5,9 +5,13 @@
 
 _ONNXS_
 
-_[ON-eks-ESS] noun._
+_/ON-eks-ESS/_ 
+
+_noun_
 
 _1. ONNX interop for Elixir_
+
+_2. The twenty-first century's yesterday_
 
 ## Overview
 
@@ -23,7 +27,7 @@ The package can be installed by adding onnxs to your list of dependencies in mix
 ```
 def deps do
   [
-    {:onnxs, "~> 0.1.0"}
+    {:onnxs, "~> 0.2.0"}
   ]
 end
 ```
